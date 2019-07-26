@@ -1,0 +1,19 @@
+.task {
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 4px;
+
+  &:first-of-type {
+    margin-top: 10px;
+  }
+}
+
+.input {
+  font-size: 15px;
+  outline: none;
+  width: 245px;
+  min-height: 35px;
+  background-color: transparent;
+  border-width: 0;
+  padding: 5px;
+}

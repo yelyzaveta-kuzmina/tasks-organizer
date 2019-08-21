@@ -26,6 +26,11 @@ class Column extends React.Component {
     });
   };
 
+  onHandleKey = (event) => {
+    if (event.key === 13 || event.which === 13) {
+      this.toggleTitleEditing();
+    }
+  };
   onTaskCreate = () => {
     this.props.onChange({
       ...this.props.column,
@@ -44,6 +49,10 @@ class Column extends React.Component {
     });
   };
 
+  onBlur = () => {
+    this.setState({ isTitleEdited: false });
+  };
+
   render() {
     const { isTitleEdited } = this.state;
     const { column } = this.props;
@@ -51,19 +60,22 @@ class Column extends React.Component {
     return (
       <div className={styles.column}>
         <div className={styles.columnHeader}>
-          {!isTitleEdited && column.title}
-          {isTitleEdited && (
-            <input
-              className={styles.input}
-              placeholder="Desk name"
-              value={column.title}
-              onChange={this.onTitleChange}
-            />
-          )}
+          <div className={styles.title}>
+            {!isTitleEdited && column.title}
+            {isTitleEdited && (
+              <input
+                className={styles.input}
+                placeholder="Desk name"
+                value={column.title}
+                onBlur={this.onBlur}
+                onChange={this.onTitleChange}
+                onKeyUp={this.onHandleKey}
+              />
+            )}
+          </div>
 
           <button className={styles.editSaveButton} onClick={this.toggleTitleEditing}>
             {!isTitleEdited && <FontAwesomeIcon icon={faEdit} />}
-            {isTitleEdited && 'Save'}
           </button>
         </div>
 

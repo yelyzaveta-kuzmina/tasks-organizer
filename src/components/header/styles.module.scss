@@ -1,14 +1,14 @@
 .wrapper {
   display: flex;
   justify-content: center;
+  align-content: center;
   flex: 0 0 70px;
-  background-color: rgba(16, 24, 17, 0.9);
+  background-color: rgba(16, 24, 17, 0.3);
   color: white;
 }
 
 .label {
-  line-height: 70px;
+  align-self: center;
   display: inline-block;
   font-size: 30px;
-  font-family: Papyrus, fantasy;
 }

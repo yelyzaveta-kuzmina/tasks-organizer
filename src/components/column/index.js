@@ -2,6 +2,7 @@ import React from 'react';
 import Task from '../../components/task';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.scss';
 
 const EMPTY_TASK = {
@@ -64,6 +65,7 @@ class Column extends React.Component {
             {!isTitleEdited && column.title}
             {isTitleEdited && (
               <input
+                autoFocus={isTitleEdited}
                 className={styles.input}
                 placeholder="Desk name"
                 value={column.title}
@@ -76,6 +78,7 @@ class Column extends React.Component {
 
           <button className={styles.editSaveButton} onClick={this.toggleTitleEditing}>
             {!isTitleEdited && <FontAwesomeIcon icon={faEdit} />}
+            {isTitleEdited && column.title !== '' && <FontAwesomeIcon icon={faCheck} />}
           </button>
         </div>
 
@@ -87,11 +90,9 @@ class Column extends React.Component {
           />
         ))}
 
-        <div className={styles.columnBody}>
-          <button className={styles.editSaveTaskButton} onClick={this.onTaskCreate}>
-            + Add a card
-          </button>
-        </div>
+        <button className={styles.addCard} onClick={this.onTaskCreate}>
+          + Add a card
+        </button>
       </div>
     );
   }

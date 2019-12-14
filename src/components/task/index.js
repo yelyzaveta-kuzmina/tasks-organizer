@@ -1,4 +1,5 @@
 import React from 'react';
+import { DeleteButton } from '../font-awesome-icons';
 import styles from './styles.module.scss';
 
 class Task extends React.Component {
@@ -14,27 +15,22 @@ class Task extends React.Component {
     });
   };
 
-  onBlur = () => {
-    this.setState({ isTaskTitleEdited: false });
-  };
-
   render() {
     const { isTaskTitleEdited } = this.state;
-    const { task } = this.props;
+    const { task, onDelete } = this.props;
+
     return (
-      <div>
-        <div className={styles.task}>
-          {!isTaskTitleEdited && task.title}
-          {isTaskTitleEdited && (
-            <input
-              className={styles.input}
-              placeholder="Enter a title for this card..."
-              value={task.title}
-              onBlur={this.onBlur}
-              onChange={this.onTaskTitleChange}
-            />
-          )}
-        </div>
+      <div className={styles.task}>
+        {!isTaskTitleEdited && task.title}
+        {isTaskTitleEdited && (
+          <input
+            className={styles.input}
+            placeholder="Enter a title for this card..."
+            value={task.title}
+            onChange={this.onTaskTitleChange}
+          />
+        )}
+        <DeleteButton className={styles.deleteTask} onClick={onDelete} />
       </div>
     );
   }

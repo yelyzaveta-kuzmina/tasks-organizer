@@ -8,12 +8,13 @@
   border-radius: 4px;
   padding: 3px;
 
-  &:first-of-type {
-    margin-top: 10px;
+  &:hover .deleteTask {
+    visibility: visible;
   }
 
   .input {
     display: flex;
+    flex: 1 1 1;
     line-height: 40px;
     font-size: 15px;
     font-family: Papyrus, fantasy;
@@ -22,5 +23,12 @@
     min-height: 35px;
     background-color: transparent;
     border-width: 0;
+  }
+
+  .deleteTask {
+    align-self: center;
+    visibility: hidden;
+    padding: 0 5px;
+    cursor: pointer;
   }
 }

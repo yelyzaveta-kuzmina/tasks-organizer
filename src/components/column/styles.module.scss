@@ -12,11 +12,13 @@
   display: flex;
   align-items: baseline;
   height: 25px;
+  margin-bottom: 15px;
   border-bottom: 1px solid black;
 
   .title {
     display: flex;
     flex: 1;
+    padding: 0 10px;
     font-size: 15px;
     overflow-y: auto;
   }
@@ -40,15 +42,4 @@
     border: none;
     cursor: pointer;
   }
-}
-
-.addCard {
-  font-size: 16px;
-  outline: none;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin-top: 15px;
-  font-family: Papyrus, fantasy;
-  cursor: pointer;
 }

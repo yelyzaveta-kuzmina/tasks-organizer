@@ -1,8 +1,7 @@
 import React from 'react';
+import { EditButton, SubmitButton } from '../font-awesome-icons';
 import Task from '../../components/task';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import AddCardButton from '../add-card-button';
 import styles from './styles.module.scss';
 
 const EMPTY_TASK = {
@@ -32,10 +31,20 @@ class Column extends React.Component {
       this.toggleTitleEditing();
     }
   };
+
   onTaskCreate = () => {
     this.props.onChange({
       ...this.props.column,
       tasks: [...this.props.column.tasks, EMPTY_TASK]
+    });
+  };
+
+  onTaskDelete = (indexToRemove) => {
+    this.props.onChange({
+      ...this.props.column,
+      tasks: this.props.column.tasks.filter((task, index) => {
+        return index !== indexToRemove;
+      })
     });
   };
 
@@ -77,8 +86,8 @@ class Column extends React.Component {
           </div>
 
           <button className={styles.editSaveButton} onClick={this.toggleTitleEditing}>
-            {!isTitleEdited && <FontAwesomeIcon icon={faEdit} />}
-            {isTitleEdited && column.title !== '' && <FontAwesomeIcon icon={faCheck} />}
+            {!isTitleEdited && <EditButton />}
+            {isTitleEdited && column.title !== '' && <SubmitButton />}
           </button>
         </div>
 
@@ -87,12 +96,10 @@ class Column extends React.Component {
             key={index}
             task={task}
             onChange={(updatedTask) => this.onTaskUpdate(index, updatedTask)}
+            onDelete={() => this.onTaskDelete(index)}
           />
         ))}
-
-        <button className={styles.addCard} onClick={this.onTaskCreate}>
-          + Add a card
-        </button>
+        <AddCardButton onClick={this.onTaskCreate} />
       </div>
     );
   }

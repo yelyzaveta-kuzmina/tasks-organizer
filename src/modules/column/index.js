@@ -1,5 +1,5 @@
 import React from 'react';
-import { EditButton, SubmitButton } from '../../components/font-awesome-icons';
+import { EditButton, SubmitButton, DeleteColumnButton } from '../../components/font-awesome-icons';
 import Task from '../task';
 import AddCardButton from '../../components/add-card-button';
 import styles from './styles.module.scss';
@@ -65,7 +65,7 @@ class Column extends React.Component {
 
   render() {
     const { isTitleEdited } = this.state;
-    const { column } = this.props;
+    const { column, onColumnDelete } = this.props;
 
     return (
       <div className={styles.column}>
@@ -97,7 +97,10 @@ class Column extends React.Component {
             onDelete={() => this.onTaskDelete(index)}
           />
         ))}
-        <AddCardButton onClick={this.onTaskCreate} />
+        <div className={styles.bottomButtons}>
+          <AddCardButton onClick={this.onTaskCreate} />
+          <DeleteColumnButton className={styles.deleteColumnButton} onClick={onColumnDelete} />
+        </div>
       </div>
     );
   }

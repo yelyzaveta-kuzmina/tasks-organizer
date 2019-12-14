@@ -6,40 +6,59 @@
   padding: 10px;
   background-color: rgba(225, 225, 225, 0.9);
   border-radius: 5px;
-}
 
-.columnHeader {
-  display: flex;
-  align-items: baseline;
-  height: 25px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid black;
-
-  .title {
+  .columnHeader {
     display: flex;
-    flex: 1;
-    padding: 0 10px;
-    font-size: 15px;
-    overflow-y: auto;
+    align-items: baseline;
+    height: 25px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid black;
+
+    .title {
+      display: flex;
+      flex: 1;
+      padding: 0 10px;
+      font-size: 15px;
+      overflow-y: auto;
+    }
+
+    .input {
+      width: 100%;
+      font-size: 15px;
+      background-color: transparent;
+      border-width: 0;
+      outline: none;
+      font-family: Papyrus, fantasy;
+    }
+
+    .editSaveButton {
+      flex: 0 0 12px;
+      padding: 0;
+      margin-left: 5px;
+      font-size: 15px;
+      outline: none;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
   }
 
-  .input {
-    width: 100%;
-    font-size: 15px;
-    background-color: transparent;
-    border-width: 0;
-    outline: none;
-    font-family: Papyrus, fantasy;
-  }
+  .bottomButtons {
+    display: flex;
 
-  .editSaveButton {
-    flex: 0 0 12px;
-    padding: 0;
-    margin-left: 5px;
-    font-size: 15px;
-    outline: none;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+    &:hover .deleteColumnButton {
+      visibility: visible;
+      color: darkgrey;
+      cursor: pointer;
+    }
+
+    .deleteColumnButton {
+      visibility: hidden;
+      align-self: center;
+
+      &:hover {
+        color: black;
+      }
+    }
   }
 }

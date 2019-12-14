@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './components/header';
-import Column from './modules/column';
-import './index.css';
+import Header from '../../components/header';
+import Column from '../column';
+import styles from './styles.module.scss';
 
 const EMPTY_COLUMN = {
   title: '',
@@ -19,6 +19,14 @@ class Application extends React.Component {
     });
   };
 
+  onColumnDelete = (indexToRemove) => {
+    this.setState({
+      columns: this.state.columns.filter((column, index) => {
+        return index !== indexToRemove;
+      })
+    });
+  };
+
   onColumnUpdate = (columnIndex, updatedColumn) => {
     this.setState({
       columns: [
@@ -31,20 +39,21 @@ class Application extends React.Component {
 
   render() {
     const { columns } = this.state;
-    console.log(this.state);
+
     return (
       <>
         <Header onCreateColumn={this.onCreateColumn} />
-        <div className="columnsWrapper">
+        <div className={styles.columnsWrapper}>
           {columns.map((column, index) => (
             <Column
               key={index}
               column={column}
               onChange={(updatedColumn) => this.onColumnUpdate(index, updatedColumn)}
+              onColumnDelete={() => this.onColumnDelete(index)}
             />
           ))}
-          <button className="addButton" onClick={() => this.onCreateColumn()}>
-            + Add another list
+          <button className={styles.addButton} onClick={() => this.onCreateColumn()}>
+            + Add column
           </button>
         </div>
       </>

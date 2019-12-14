@@ -1,35 +1,12 @@
-body {
-  height: 100vh;
-  margin: 0;
-  font-family: Papyrus, fantasy;
-  background: linear-gradient(#3a1c71, #d76d77, #ffaf7b);
-}
-
 #root {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.addButton {
-  font-size: 17px;
-  cursor: pointer;
-  height: 30px;
-  border-radius: 4px;
-  margin-top: 7px;
-  margin-left: 30px;
-  outline: none;
-  color: white;
-  border: none;
-  background-color: transparent;
+body {
+  height: 100vh;
+  margin: 0;
   font-family: Papyrus, fantasy;
-}
-
-.columnsWrapper {
-  display: flex;
-  align-items: flex-start;
-  flex: 1;
-  padding-top: 25px;
-  white-space: nowrap;
-  overflow-x: auto;
+  background: linear-gradient(#3a1c71, #d76d77, #ffaf7b);
 }

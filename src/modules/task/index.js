@@ -1,5 +1,5 @@
 import React from 'react';
-import { DeleteButton } from '../font-awesome-icons';
+import { DeleteButton } from '../../components/font-awesome-icons';
 import styles from './styles.module.scss';
 
 class Task extends React.Component {

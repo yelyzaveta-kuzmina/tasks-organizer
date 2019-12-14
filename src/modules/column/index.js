@@ -1,7 +1,7 @@
 import React from 'react';
-import { EditButton, SubmitButton } from '../font-awesome-icons';
-import Task from '../../components/task';
-import AddCardButton from '../add-card-button';
+import { EditButton, SubmitButton } from '../../components/font-awesome-icons';
+import Task from '../task';
+import AddCardButton from '../../components/add-card-button';
 import styles from './styles.module.scss';
 
 const EMPTY_TASK = {
@@ -84,13 +84,11 @@ class Column extends React.Component {
               />
             )}
           </div>
-
           <button className={styles.editSaveButton} onClick={this.toggleTitleEditing}>
             {!isTitleEdited && <EditButton />}
             {isTitleEdited && column.title !== '' && <SubmitButton />}
           </button>
         </div>
-
         {column.tasks.map((task, index) => (
           <Task
             key={index}

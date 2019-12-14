@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
-const Header = (props) => {
+const Header = () => {
   return (
     <div className={styles.wrapper}>
-      <span className={styles.label}>Wieheißter</span>
+      <span className={styles.title}>Wieheißter</span>
     </div>
   );
 };

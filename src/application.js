@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/header';
-import Column from './components/column';
+import Column from './modules/column';
 import './index.css';
 
 const EMPTY_COLUMN = {

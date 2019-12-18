@@ -1,13 +1,12 @@
 import React from 'react';
+import { addColumn } from '../../utils/local-storage';
 import { EditButton, SubmitButton, DeleteColumnButton } from '../../components/font-awesome-icons';
 import Task from '../task';
 import AddCardButton from '../../components/add-card-button';
 import styles from './styles.module.scss';
 
 const EMPTY_TASK = {
-  title: '',
-  description: '',
-  labels: []
+  title: ''
 };
 
 class Column extends React.Component {
@@ -66,41 +65,45 @@ class Column extends React.Component {
   render() {
     const { isTitleEdited } = this.state;
     const { column, onColumnDelete } = this.props;
-
     return (
       <div className={styles.column}>
-        <div className={styles.columnHeader}>
-          <div className={styles.title}>
-            {!isTitleEdited && column.title}
-            {isTitleEdited && (
-              <input
-                autoFocus={isTitleEdited}
-                className={styles.input}
-                placeholder="Desk name"
-                value={column.title}
-                onBlur={this.onBlur}
-                onChange={this.onTitleChange}
-                onKeyUp={this.onHandleKey}
-              />
-            )}
+        <form onSubmit={() => addColumn(column)}>
+          <div className={styles.columnHeader}>
+            <div className={styles.title}>
+              {!isTitleEdited && column.title}
+              {isTitleEdited && (
+                <input
+                  required
+                  type="text"
+                  autoFocus={isTitleEdited}
+                  className={styles.input}
+                  placeholder="Desk name"
+                  value={column.title}
+                  onBlur={this.onBlur}
+                  onChange={this.onTitleChange}
+                  onKeyUp={this.onHandleKey}
+                />
+              )}
+            </div>
+            <button className={styles.editSaveButton} onClick={this.toggleTitleEditing}>
+              {!isTitleEdited && <EditButton />}
+              {isTitleEdited && column.title !== '' && <SubmitButton />}
+            </button>
           </div>
-          <button className={styles.editSaveButton} onClick={this.toggleTitleEditing}>
-            {!isTitleEdited && <EditButton />}
-            {isTitleEdited && column.title !== '' && <SubmitButton />}
-          </button>
-        </div>
-        {column.tasks.map((task, index) => (
-          <Task
-            key={index}
-            task={task}
-            onChange={(updatedTask) => this.onTaskUpdate(index, updatedTask)}
-            onDelete={() => this.onTaskDelete(index)}
-          />
-        ))}
-        <div className={styles.bottomButtons}>
-          <AddCardButton onClick={this.onTaskCreate} />
-          <DeleteColumnButton className={styles.deleteColumnButton} onClick={onColumnDelete} />
-        </div>
+          {column.tasks.map((task, index) => (
+            <Task
+              key={index}
+              task={task}
+              onChange={(updatedTask) => this.onTaskUpdate(index, updatedTask)}
+              onDelete={() => this.onTaskDelete(index)}
+            />
+          ))}
+          <div className={styles.bottomButtons}>
+            <AddCardButton onClick={this.onTaskCreate} />
+            <DeleteColumnButton className={styles.deleteColumnButton} onClick={onColumnDelete} />
+          </div>
+          <button type="submit">Submit column</button>
+        </form>
       </div>
     );
   }

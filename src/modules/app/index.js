@@ -1,4 +1,5 @@
 import React from 'react';
+import { getColumns } from '../../utils/local-storage';
 import Header from '../../components/header';
 import Column from '../column';
 import styles from './styles.module.scss';
@@ -11,6 +12,12 @@ const EMPTY_COLUMN = {
 class Application extends React.Component {
   state = {
     columns: []
+  };
+
+  componentDidMount = () => {
+    this.setState({
+      columns: getColumns()
+    });
   };
 
   onCreateColumn = () => {
@@ -42,7 +49,7 @@ class Application extends React.Component {
 
     return (
       <>
-        <Header onCreateColumn={this.onCreateColumn} />
+        <Header />
         <div className={styles.columnsWrapper}>
           {columns.map((column, index) => (
             <Column

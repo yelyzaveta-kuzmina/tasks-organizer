@@ -4,8 +4,7 @@ import styles from './styles.module.scss';
 
 class Task extends React.Component {
   state = {
-    isTaskTitleEdited: !Boolean(this.props.title),
-    isDescriptionEdited: !Boolean(this.props.title)
+    isTaskTitleEdited: !Boolean(this.props.title)
   };
 
   onTaskTitleChange = (event) => {

@@ -1,38 +1,28 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { DeleteButton } from '../../components/font-awesome-icons';
+import { useTask } from './state';
 import styles from './styles.module.scss';
 
-class Task extends React.Component {
-  state = {
-    isTaskTitleEdited: !Boolean(this.props.title)
-  };
+const Task = ({ task }) => {
+  const { onDelete, onTitleChange } = useTask({ task });
+  const [taskTitleInput, setTaskTitleInput] = useState(task.title || '');
 
-  onTaskTitleChange = (event) => {
-    this.props.onChange({
-      ...this.props.task,
-      title: event.target.value
-    });
-  };
+  const onSubmit = useCallback(() => {
+    onTitleChange(taskTitleInput);
+  }, [taskTitleInput, onTitleChange]);
 
-  render() {
-    const { isTaskTitleEdited } = this.state;
-    const { task, onDelete } = this.props;
-
-    return (
-      <div className={styles.task}>
-        {!isTaskTitleEdited && task.title}
-        {isTaskTitleEdited && (
-          <input
-            className={styles.input}
-            placeholder="Enter a title for this card..."
-            value={task.title}
-            onChange={this.onTaskTitleChange}
-          />
-        )}
-        <DeleteButton className={styles.deleteTask} onClick={onDelete} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className={styles.task}>
+      <input
+        className={styles.input}
+        placeholder="Enter a title for this card..."
+        value={taskTitleInput}
+        onChange={(event) => setTaskTitleInput(event.target.value)}
+        onBlur={onSubmit}
+      />
+      <DeleteButton className={styles.deleteTask} onClick={onDelete} />
+    </div>
+  );
+};
 
 export default Task;

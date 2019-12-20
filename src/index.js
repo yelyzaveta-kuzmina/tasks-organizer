@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Application from './modules/app';
+import { AppStateProvider } from './state';
 import './index.css';
 
-ReactDOM.render(<Application />, document.getElementById('root'));
+const AppWithProviders = () => (
+  <AppStateProvider>
+    <Application />
+  </AppStateProvider>
+);
+
+ReactDOM.render(<AppWithProviders />, document.getElementById('root'));

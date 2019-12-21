@@ -1,6 +1,6 @@
 .column {
   display: inline-block;
-  min-width: 250px;
+  width: 300px;
   min-height: 50px;
   margin-left: 10px;
   padding: 10px;
@@ -9,24 +9,5 @@
 
   .droppBox {
     min-height: 35px;
-  }
-
-  .bottomButtons {
-    display: flex;
-
-    &:hover .deleteColumnButton {
-      visibility: visible;
-      color: darkgrey;
-      cursor: pointer;
-    }
-
-    .deleteColumnButton {
-      visibility: hidden;
-      align-self: center;
-
-      &:hover {
-        color: black;
-      }
-    }
   }
 }

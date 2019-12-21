@@ -1,6 +1,5 @@
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
-import { DeleteColumnButton } from '../../components/font-awesome-icons';
 import Task from '../task';
 import AddCardButton from '../../components/add-card-button';
 import { useColumn } from './state';
@@ -12,7 +11,12 @@ const Column = ({ column }) => {
 
   return (
     <div className={styles.column}>
-      <Header title={column.title} onTitleChange={onTitleChange} />
+      <Header
+        title={column.title}
+        columnID={column.id}
+        onDelete={onDelete}
+        onTitleChange={onTitleChange}
+      />
       <Droppable droppableId={column.id}>
         {(provided, snapshot) => (
           <div className={styles.droppBox} ref={provided.innerRef}>
@@ -24,10 +28,7 @@ const Column = ({ column }) => {
           </div>
         )}
       </Droppable>
-      <div className={styles.bottomButtons}>
-        <AddCardButton onClick={onTaskAdd} />
-        <DeleteColumnButton className={styles.deleteColumnButton} onClick={onDelete} />
-      </div>
+      <AddCardButton onClick={onTaskAdd} />
     </div>
   );
 };

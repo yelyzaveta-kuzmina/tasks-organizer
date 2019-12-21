@@ -1,8 +1,13 @@
 import React, { useState, useCallback } from 'react';
-import styles from './styles.module.scss';
-import { EditButton, SubmitButton } from '../../../components/font-awesome-icons';
 
-export const Header = ({ title, onTitleChange }) => {
+import {
+  EditButton,
+  SubmitButton,
+  DeleteColumnButton
+} from '../../../components/font-awesome-icons';
+import styles from './styles.module.scss';
+
+export const Header = ({ title, columnID, onDelete, onTitleChange }) => {
   const [isTitleEdited, setIsTitleEdited] = useState(!title);
   const [titleInput, setTitleInput] = useState(title || '');
 
@@ -37,18 +42,23 @@ export const Header = ({ title, onTitleChange }) => {
           />
         )}
       </div>
+      <div className={styles.columnActionsButton}>
+        {!isTitleEdited && (
+          <button className={styles.editSaveButton} onClick={() => setIsTitleEdited(true)}>
+            <EditButton />
+          </button>
+        )}
 
-      {!isTitleEdited && (
-        <button className={styles.editSaveButton} onClick={() => setIsTitleEdited(true)}>
-          <EditButton />
-        </button>
-      )}
-
-      {isTitleEdited && titleInput !== '' && (
-        <button className={styles.editSaveButton} onClick={onSubmit}>
-          <SubmitButton />
-        </button>
-      )}
+        {isTitleEdited && titleInput !== '' && (
+          <button className={styles.editSaveButton} onClick={onSubmit}>
+            <SubmitButton />
+          </button>
+        )}
+        <DeleteColumnButton
+          className={styles.deleteColumnButton}
+          onClick={() => onDelete(columnID)}
+        />
+      </div>
     </div>
   );
 };

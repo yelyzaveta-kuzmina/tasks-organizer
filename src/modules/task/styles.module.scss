@@ -12,6 +12,10 @@
     visibility: visible;
   }
 
+  &:hover .moveIcon {
+    visibility: visible;
+  }
+
   .input {
     display: flex;
     flex: 1 1 1;

@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
+import DraggableElementIcon from '../../components/graggable-element-icon';
 import { DeleteButton } from '../../components/font-awesome-icons';
 import { useTask } from './state';
 import styles from './styles.module.scss';
@@ -27,6 +28,7 @@ const Task = ({ task, index }) => {
             onChange={(event) => setTaskTitleInput(event.target.value)}
             onBlur={onSubmit}
           />
+          <DraggableElementIcon className={styles.moveIcon} {...provided.dragHandleProps} />
           <DeleteButton className={styles.deleteTask} onClick={onDelete} />
         </div>
       )}

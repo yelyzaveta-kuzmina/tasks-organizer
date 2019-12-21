@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/react-to-do-app/static/css/main.68468fa7.chunk.css",
-    "main.js": "/react-to-do-app/static/js/main.25716437.chunk.js",
-    "main.js.map": "/react-to-do-app/static/js/main.25716437.chunk.js.map",
-    "runtime-main.js": "/react-to-do-app/static/js/runtime-main.ad27700a.js",
-    "runtime-main.js.map": "/react-to-do-app/static/js/runtime-main.ad27700a.js.map",
-    "static/js/2.6cfe7fdf.chunk.js": "/react-to-do-app/static/js/2.6cfe7fdf.chunk.js",
-    "static/js/2.6cfe7fdf.chunk.js.map": "/react-to-do-app/static/js/2.6cfe7fdf.chunk.js.map",
-    "index.html": "/react-to-do-app/index.html",
-    "precache-manifest.f4babb7ab4fbe0d42e0e14c52cb0902c.js": "/react-to-do-app/precache-manifest.f4babb7ab4fbe0d42e0e14c52cb0902c.js",
-    "service-worker.js": "/react-to-do-app/service-worker.js",
-    "static/css/main.68468fa7.chunk.css.map": "/react-to-do-app/static/css/main.68468fa7.chunk.css.map",
-    "static/js/2.6cfe7fdf.chunk.js.LICENSE": "/react-to-do-app/static/js/2.6cfe7fdf.chunk.js.LICENSE",
-    "static/media/move.svg": "/react-to-do-app/static/media/move.b78403d5.svg"
+    "main.css": "/tasks-organizer/static/css/main.68468fa7.chunk.css",
+    "main.js": "/tasks-organizer/static/js/main.fc16a010.chunk.js",
+    "main.js.map": "/tasks-organizer/static/js/main.fc16a010.chunk.js.map",
+    "runtime-main.js": "/tasks-organizer/static/js/runtime-main.b96ce65b.js",
+    "runtime-main.js.map": "/tasks-organizer/static/js/runtime-main.b96ce65b.js.map",
+    "static/js/2.27091f22.chunk.js": "/tasks-organizer/static/js/2.27091f22.chunk.js",
+    "static/js/2.27091f22.chunk.js.map": "/tasks-organizer/static/js/2.27091f22.chunk.js.map",
+    "index.html": "/tasks-organizer/index.html",
+    "precache-manifest.bfe60f80810178889ccd1b7bd57a69fe.js": "/tasks-organizer/precache-manifest.bfe60f80810178889ccd1b7bd57a69fe.js",
+    "service-worker.js": "/tasks-organizer/service-worker.js",
+    "static/css/main.68468fa7.chunk.css.map": "/tasks-organizer/static/css/main.68468fa7.chunk.css.map",
+    "static/js/2.27091f22.chunk.js.LICENSE": "/tasks-organizer/static/js/2.27091f22.chunk.js.LICENSE",
+    "static/media/move.svg": "/tasks-organizer/static/media/move.b78403d5.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ad27700a.js",
-    "static/js/2.6cfe7fdf.chunk.js",
+    "static/js/runtime-main.b96ce65b.js",
+    "static/js/2.27091f22.chunk.js",
     "static/css/main.68468fa7.chunk.css",
-    "static/js/main.25716437.chunk.js"
+    "static/js/main.fc16a010.chunk.js"
   ]
 }

@@ -6,7 +6,7 @@
    <img src="tasks-organizer.jpeg" alt="screenshot"></img>
 </p>
 
-You can try demo [here](https://yelyzaveta-kuzmina.github.io/react-to-do-app/).
+You can try demo [here](https://yelyzaveta-kuzmina.github.io/tasks-organizer/).
 
 ###### Technologies:
   - JavaScript

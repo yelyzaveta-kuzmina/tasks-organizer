@@ -38,16 +38,23 @@
     .editSaveButton {
       padding: 0;
       width: 15px;
+      color: darkgrey;
       outline: none;
       background-color: transparent;
       border: none;
       cursor: pointer;
+
+      &:hover {
+        color: darkgreen;
+      }
     }
 
     .deleteColumnButton {
       flex: 0 0 12px;
       width: 15px;
       margin-left: 5px;
+      color: darkgrey;
+
       &:hover {
         color: black;
       }

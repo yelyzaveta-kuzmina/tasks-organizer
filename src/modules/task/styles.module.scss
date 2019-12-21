@@ -1,6 +1,5 @@
 .task {
   display: flex;
-  line-height: 40px;
   font-size: 15px;
   background-color: white;
   height: 35px;
@@ -10,6 +9,7 @@
 
   &:hover .deleteTask {
     visibility: visible;
+    color: darkgrey;
   }
 
   &:hover .moveIcon {
@@ -19,7 +19,6 @@
   .input {
     display: flex;
     flex: 1 1 1;
-    line-height: 40px;
     font-size: 15px;
     font-family: Papyrus, fantasy;
     outline: none;
@@ -32,7 +31,12 @@
   .deleteTask {
     align-self: center;
     visibility: hidden;
+    color: darkgrey;
     padding: 0 5px;
     cursor: pointer;
+
+    &:hover {
+      color: black;
+    }
   }
 }

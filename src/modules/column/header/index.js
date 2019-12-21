@@ -32,7 +32,7 @@ export const Header = ({ title, columnID, onDelete, onTitleChange }) => {
         {isTitleEdited && (
           <input
             autoFocus
-            required
+            spellCheck="false"
             className={styles.input}
             placeholder="Desk name"
             value={titleInput}

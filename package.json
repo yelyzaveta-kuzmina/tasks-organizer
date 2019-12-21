@@ -1,6 +1,6 @@
 {
-  "name": "to-do-app",
-  "homepage": "https://yelyzaveta-kuzmina.github.io/react-to-do-app/",
+  "name": "tasks-organizer",
+  "homepage": "https://yelyzaveta-kuzmina.github.io/tasks-organizer/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,7 +10,6 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "classnames": "^2.2.6",
     "gh-pages": "^2.1.1",
-    "moment": "^2.24.0",
     "node-sass": "^4.13.0",
     "react": "^16.8.6",
     "react-beautiful-dnd": "^12.2.0",

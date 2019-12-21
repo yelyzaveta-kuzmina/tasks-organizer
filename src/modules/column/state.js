@@ -6,7 +6,7 @@ export const useColumn = ({ column }) => {
 
   const onDelete = useCallback(() => {
     onColumnDelete(column.id);
-  }, [column]);
+  }, [column, onColumnDelete]);
 
   const onUpdate = useCallback(
     (data) => {

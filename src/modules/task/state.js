@@ -6,7 +6,7 @@ export const useTask = ({ task }) => {
 
   const onDelete = useCallback(() => {
     onTaskDelete(task.id);
-  }, [task]);
+  }, [task, onTaskDelete]);
 
   const onUpdate = useCallback(
     (data) => {

@@ -22,13 +22,9 @@ export const useTasks = () => {
     setTasks((tasks) => [...tasks, newTask]);
   }, []);
 
-  const onTaskDelete = useCallback(
-    (taskId) => {
-      const newTasks = tasks.filter((task) => task.id !== taskId);
-      setTasks(newTasks);
-    },
-    [tasks]
-  );
+  const onTaskDelete = useCallback((taskId) => {
+    setTasks((tasks) => tasks.filter((task) => task.id !== taskId));
+  }, []);
 
   const onTaskUpdate = useCallback(
     (taskId, data) => {

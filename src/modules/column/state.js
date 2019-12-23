@@ -2,11 +2,12 @@ import { useCallback } from 'react';
 import { useAppState } from '../../state';
 
 export const useColumn = ({ column }) => {
-  const { tasks, onColumnDelete, onColumnUpdate, onTaskAdd } = useAppState();
+  const { tasks, onColumnDelete, onColumnUpdate, onTaskAdd, onTaskDelete } = useAppState();
 
   const onDelete = useCallback(() => {
+    tasks.map((task) => task.id).forEach(onTaskDelete);
     onColumnDelete(column.id);
-  }, [column, onColumnDelete]);
+  }, [column, tasks, onColumnDelete, onTaskDelete]);
 
   const onUpdate = useCallback(
     (data) => {

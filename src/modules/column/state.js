@@ -1,8 +1,12 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useAppState } from '../../state';
 
 export const useColumn = ({ column }) => {
-  const { tasks, onColumnDelete, onColumnUpdate, onTaskAdd, onTaskDelete } = useAppState();
+  const { getColumnTasks, onColumnDelete, onColumnUpdate, onTaskAdd, onTaskDelete } = useAppState();
+
+  const tasks = useMemo(() => {
+    return getColumnTasks(column.id);
+  }, [getColumnTasks, column.id]);
 
   const onDelete = useCallback(() => {
     tasks.map((task) => task.id).forEach(onTaskDelete);
@@ -24,7 +28,7 @@ export const useColumn = ({ column }) => {
   );
 
   return {
-    tasks: tasks.filter((task) => task.columnId === column.id),
+    tasks,
     onDelete,
     onTitleChange,
     onTaskAdd: useCallback(() => onTaskAdd({ columnId: column.id }), [column, onTaskAdd])

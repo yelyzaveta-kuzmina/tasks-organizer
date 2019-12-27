@@ -6,7 +6,7 @@ const AppStateContext = createContext(null);
 
 export const AppStateProvider = ({ children }) => {
   const { columns, onColumnAdd, onColumnDelete, onColumnUpdate } = useColumns();
-  const { tasks, onTaskAdd, onTaskDelete, onTaskUpdate } = useTasks();
+  const { tasks, getColumnTasks, onTaskAdd, onTaskDelete, onTaskUpdate, onTaskMove } = useTasks();
 
   const contextValue = {
     columns,
@@ -14,9 +14,11 @@ export const AppStateProvider = ({ children }) => {
     onColumnDelete,
     onColumnUpdate,
     tasks,
+    getColumnTasks,
     onTaskAdd,
     onTaskDelete,
-    onTaskUpdate
+    onTaskUpdate,
+    onTaskMove
   };
 
   return <AppStateContext.Provider value={contextValue}>{children}</AppStateContext.Provider>;

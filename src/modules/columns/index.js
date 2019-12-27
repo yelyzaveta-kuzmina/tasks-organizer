@@ -6,19 +6,24 @@ import styles from './styles.module.scss';
 
 export const Columns = () => {
   const [isTaskDragged, setIsTaskDragged] = useState(false);
-  const { columns, onColumnAdd, onTaskUpdate } = useAppState();
+  const { columns, onColumnAdd, onTaskMove } = useAppState();
 
   const onDragEnd = useCallback(
     (result) => {
-      const { draggableId: taskId, destination } = result;
+      const { draggableId: taskId, destination, source } = result;
       setIsTaskDragged(false);
       if (!destination) {
         return;
       }
-      const { droppableId: columnId } = destination;
-      onTaskUpdate(taskId, { columnId });
+      onTaskMove({
+        taskId,
+        sourceColumnId: source.droppableId,
+        sourceIndex: source.index,
+        destinationColumnId: destination.droppableId,
+        destinationIndex: destination.index
+      });
     },
-    [onTaskUpdate, setIsTaskDragged]
+    [setIsTaskDragged, onTaskMove]
   );
 
   return (
